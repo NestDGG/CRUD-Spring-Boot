@@ -22,9 +22,9 @@ public class CategoriaModel {
 	private String descripcion;
 	
 
-	CategoriaModel() {}
+	public CategoriaModel() {}
 	
-	CategoriaModel(String tipo, String descripcion) {
+	public CategoriaModel(String tipo, String descripcion) {
 		this.tipo = tipo;
 		this.descripcion = descripcion;
 	}

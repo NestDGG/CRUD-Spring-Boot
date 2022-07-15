@@ -1,6 +1,7 @@
 package com.Backend.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
@@ -19,8 +20,8 @@ public class CategoriasServices {
 		return repository.findAll();
 	}
 	
-	public CategoriaModel obtenerPorId(long id) {
-		return repository.findById(id).orElseThrow();
+	public Optional<CategoriaModel> obtenerPorId(long id) {
+		return repository.findById(id);
 	}
 	
 	public CategoriaModel nuevaCategoria(CategoriaModel nuevaCategoria) {
@@ -29,12 +30,13 @@ public class CategoriasServices {
 	
 	public CategoriaModel actualizarCategoria ( Long id,  CategoriaModel nueva ) throws NotFoundException{
 		
-		CategoriaModel actual = repository.findById(id).orElseThrow(() -> new NotFoundException());
+		/*CategoriaModel actual = repository.findById(id).orElseThrow(() -> new NotFoundException());
 		
 		actual.setTipo(nueva.getTipo());
 		actual.setDescripcion(nueva.getDescripcion());
 	
-		return repository.save(actual);
+		return repository.save(actual);*/
+		return repository.save(nueva);
 			
 	}
 	

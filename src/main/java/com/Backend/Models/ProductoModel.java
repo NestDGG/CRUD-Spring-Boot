@@ -23,9 +23,9 @@ public class ProductoModel {
 	
 	private String categoria;
 	
-	ProductoModel() {}
+	public ProductoModel() {}
 	
-	ProductoModel(String nombre, String precio, String categoria) {
+	public ProductoModel(String nombre, String precio, String categoria) {
 		this.nombre = nombre;
 		this.precio = precio;
 		this.categoria = categoria;

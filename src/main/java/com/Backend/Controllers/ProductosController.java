@@ -1,6 +1,7 @@
 package com.Backend.Controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister.NotFoundException;
@@ -25,7 +26,7 @@ public class ProductosController {
 	
 	@ApiOperation(value = "Buscar producto por ID.")
 	@GetMapping("/productos/{id}")
-	public ProductoModel obtenerProductoPorId(@PathVariable long id) {
+	public Optional<ProductoModel> obtenerProductoPorId(@PathVariable long id) {
 		return productoServices.obtenerPorId(id);
 	}
 	

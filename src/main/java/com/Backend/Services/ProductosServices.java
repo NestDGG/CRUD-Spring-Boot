@@ -14,7 +14,7 @@ public class ProductosServices {
 	
 	
 	@Autowired
-	ProductosRepository repository;
+	private ProductosRepository repository;
 	
 	
 	
@@ -23,8 +23,8 @@ public class ProductosServices {
 	}
 	
 	
-	public ProductoModel obtenerPorId(long id) {
-		return repository.findById(id).orElseThrow();
+	public Optional<ProductoModel> obtenerPorId(long id) {
+		return repository.findById(id);
 	}
 	
 	
@@ -35,13 +35,15 @@ public class ProductosServices {
 	public ProductoModel actualizarProducto(long id, ProductoModel nuevo) throws NotFoundException{
 		
 		
-		ProductoModel actual = repository.findById(id).orElseThrow(() -> new NotFoundException());
+	/*ProductoModel actual = repository.findById(id).orElseThrow(() -> new NotFoundException());
 		
 		actual.setNombre(nuevo.getNombre());
 		actual.setPrecio(nuevo.getPrecio());
 		actual.setCategoria(nuevo.getCategoria());
 		
-		return repository.save(actual);
+		return repository.save(actual);*/
+		
+		return repository.save(nuevo);
 		
 	}
 
